@@ -1,0 +1,54 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Contenedor principal */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-btn-primary {
+  background-color: #5d3fd3 !important;
+  border-color: #5d3fd3 !important;
+  font-weight: 600;
+}
+
+.auth-btn-primary:hover {
+  background-color: #4c32b8 !important;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-weight: 700;
+  color: #5d3fd3 !important;
+}
+
+/* Footer */
+footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+}

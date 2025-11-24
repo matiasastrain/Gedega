@@ -1,0 +1,75 @@
+/* ===== NAVBAR STYLES ===== */
+.custom-navbar {
+  background: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #5d3fd3 !important;
+  letter-spacing: -0.5px;
+}
+
+.custom-navbar .nav-link {
+  color: #555 !important;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #5d3fd3 !important;
+}
+
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: #5d3fd3;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Botón Contact */
+.custom-navbar .btn-contact {
+  background-color: #5d3fd3 !important;
+  color: white !important;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(93, 63, 211, 0.3);
+}
+
+.custom-navbar .btn-contact:hover {
+  background-color: #4c32b8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(93, 63, 211, 0.4);
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .custom-navbar .navbar-collapse {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}

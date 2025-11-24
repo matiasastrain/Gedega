@@ -1,0 +1,170 @@
+/* ===== HERO SECTION ===== */
+.home-hero-section {
+  background: #f8f9fa;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Título en bloque morado */
+.home-hero-title-box {
+  background: #5d3fd3;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(93, 63, 211, 0.2);
+  max-width: 90%;
+}
+
+.home-hero-title {
+  color: white !important;
+  line-height: 1.1;
+}
+
+.home-hero-highlight {
+  color: #a29bfe !important;
+}
+
+/* ===== CARRUSEL COMPLETO ===== */
+.home-carousel {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Indicadores (puntos) */
+.home-carousel .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #5d3fd3;
+  opacity: 0.4;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.home-carousel .carousel-indicators .active {
+  opacity: 1;
+  background-color: #5d3fd3;
+}
+
+/* ===== FLECHAS CIRCULARES MORADAS CENTRADAS ===== */
+.home-carousel .carousel-control-prev,
+.home-carousel .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: #5d3fd3;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  box-shadow: 0 5px 15px rgba(93, 63, 211, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.home-carousel .carousel-control-prev {
+  left: 15px;
+}
+
+.home-carousel .carousel-control-next {
+  right: 15px;
+}
+
+/* Ícono chevron blanco */
+.home-carousel .carousel-control-prev-icon,
+.home-carousel .carousel-control-next-icon {
+  background-image: none !important;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-carousel .carousel-control-prev-icon::before {
+  content: '\f284'; /* Bootstrap Icons: chevron-left */
+  font-family: 'bootstrap-icons';
+  color: white;
+  font-size: 1.3rem;
+}
+
+.home-carousel .carousel-control-next-icon::before {
+  content: '\f285'; /* Bootstrap Icons: chevron-right */
+  font-family: 'bootstrap-icons';
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Hover */
+.home-carousel .carousel-control-prev:hover,
+.home-carousel .carousel-control-next:hover {
+  background: #4c32b8;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(93, 63, 211, 0.4);
+}
+
+/* Caption (texto en la imagen) */
+.home-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  max-width: 80%;
+  backdrop-filter: blur(4px);
+  text-align: left;
+}
+
+.home-caption h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-caption p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Botones */
+.home-btn-primary {
+  background-color: #5d3fd3 !important;
+  border-color: #5d3fd3 !important;
+  font-weight: 600;
+}
+
+.home-btn-primary:hover {
+  background-color: #4c32b8 !important;
+  border-color: #4c32b8 !important;
+}
+
+.home-btn-outline {
+  border-color: #e0e0e0 !important;
+  color: #333 !important;
+  background: white !important;
+  font-weight: 600;
+}
+
+.home-btn-outline:hover {
+  background-color: #f8f9fa !important;
+  border-color: #ccc !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .home-caption {
+    left: 10px;
+    right: 10px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .home-carousel .carousel-control-prev { left: 10px; }
+  .home-carousel .carousel-control-next { right: 10px; }
+}
