@@ -1,3 +1,4 @@
+// backend/models/User.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
@@ -22,7 +23,7 @@ const User = sequelize.define('User', {
     allowNull: false
   },
   role: {
-    type: DataTypes.ENUM('propietario', 'administrador', 'trabajador', 'beta'),
+    type: DataTypes.ENUM('propietario', 'trabajador', 'beta'),
     defaultValue: 'beta'
   }
 }, {
@@ -30,5 +31,4 @@ const User = sequelize.define('User', {
   timestamps: true
 });
 
-// EXPORTAR
 module.exports = User;

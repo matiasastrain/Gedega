@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import API from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 export default function ChangePasswordModal({ show, onHide, userId }) {
+  const { t } = useTranslation();
+
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -16,11 +19,11 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
     setSuccess('');
 
     if (newPassword !== confirmPassword) {
-      setError('Las contraseñas no coinciden');
+      setError(t('Passwords do not match'));
       return;
     }
     if (newPassword.length < 8) {
-      setError('La nueva contraseña debe tener al menos 8 caracteres');
+      setError(t('Password must be at least 8 characters'));
       return;
     }
 
@@ -29,7 +32,7 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
         currentPassword,
         newPassword
       });
-      setSuccess('Contraseña actualizada con éxito');
+      setSuccess(t('Password updated successfully'));
       setTimeout(() => {
         onHide();
         setCurrentPassword('');
@@ -37,21 +40,21 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
         setConfirmPassword('');
       }, 2000);
     } catch (err) {
-      setError(err.response?.data?.error || 'Error al cambiar contraseña');
+      setError(err.response?.data?.error || t('Error changing password'));
     }
   };
 
   return (
     <Modal show={show} onHide={onHide} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Cambiar Contraseña</Modal.Title>
+        <Modal.Title>{t('Change Password')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {error && <Alert variant="danger">{error}</Alert>}
         {success && <Alert variant="success">{success}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Contraseña Actual</Form.Label>
+            <Form.Label>{t('Current Password')}</Form.Label>
             <Form.Control
               type="password"
               value={currentPassword}
@@ -60,7 +63,7 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Nueva Contraseña</Form.Label>
+            <Form.Label>{t('New Password')}</Form.Label>
             <Form.Control
               type="password"
               value={newPassword}
@@ -69,7 +72,7 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Confirmar Nueva Contraseña</Form.Label>
+            <Form.Label>{t('Confirm New Password')}</Form.Label>
             <Form.Control
               type="password"
               value={confirmPassword}
@@ -79,10 +82,10 @@ export default function ChangePasswordModal({ show, onHide, userId }) {
           </Form.Group>
           <div className="d-flex gap-2">
             <Button variant="secondary" onClick={onHide}>
-              Cancelar
+              {t('Cancel')}
             </Button>
             <Button variant="primary" type="submit">
-              Cambiar
+              {t('Change')}
             </Button>
           </div>
         </Form>

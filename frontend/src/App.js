@@ -10,11 +10,12 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PropietarioHome from './pages/roles/PropietarioHome';
-import AdministradorHome from './pages/roles/AdministradorHome';
 import TrabajadorHome from './pages/roles/TrabajadorHome';
 import BetaHome from './pages/roles/BetaHome';
 import UsersList from './pages/admin/UsersList';
 import CreateUser from './pages/admin/CreateUser';
+import About from './pages/About';
+import Contact from './pages/Contact'; // si usas /contact en el footer
 
 // ProtectedRoute
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -43,6 +44,8 @@ export default function App() {
       <AppNavbar /> {/* ← USA EL MISMO NOMBRE */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -50,12 +53,6 @@ export default function App() {
         <Route path="/dashboard/propietario" element={
           <ProtectedRoute allowedRoles={['propietario']}>
             <PropietarioHome />
-          </ProtectedRoute>
-        } />
-
-        <Route path="/dashboard/administrador" element={
-          <ProtectedRoute allowedRoles={['administrador']}>
-            <AdministradorHome />
           </ProtectedRoute>
         } />
 

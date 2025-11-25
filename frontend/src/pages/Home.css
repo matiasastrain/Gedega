@@ -1,43 +1,90 @@
 /* ===== HERO SECTION ===== */
 .home-hero-section {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #fff9d9 0%, #e0f1ff 55%, #ffffff 100%);
   min-height: 80vh;
   display: flex;
   align-items: center;
 }
 
-/* Título en bloque morado */
+/* Bloque del título */
 .home-hero-title-box {
-  background: #5d3fd3;
+  background: #ffe58f; /* pastel amarillo */
   padding: 2rem;
   border-radius: 1rem;
   display: inline-block;
-  box-shadow: 0 10px 30px rgba(93, 63, 211, 0.2);
+  box-shadow: 0 10px 30px rgba(255, 207, 96, 0.35);
   max-width: 90%;
 }
 
+/* Texto principal (título grande). 
+   Lo achicamos un poco y lo hacemos responsive. */
 .home-hero-title {
-  color: white !important;
   line-height: 1.1;
+  font-size: clamp(2.4rem, 2.4vw + 1.4rem, 3.1rem);
 }
 
+/* Versión un poco más pequeña para About */
+.about-hero-title {
+  font-size: clamp(2.1rem, 2vw + 1.2rem, 2.8rem);
+}
+
+/* Resaltado sin color especial */
 .home-hero-highlight {
-  color: #a29bfe !important;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
 }
 
-/* ===== CARRUSEL COMPLETO ===== */
+/* Botón principal azul pastel */
+.btn.home-btn-primary {
+  background-color: #8fc5ff;
+  border-color: #8fc5ff;
+  color: #073b6f;
+  font-weight: 600;
+}
+
+.btn.home-btn-primary:hover {
+  background-color: #7ab4f0;
+  border-color: #7ab4f0;
+  color: #032743;
+}
+
+/* Botón secundario con borde amarillo */
+.btn.home-btn-outline {
+  border-color: #ffe58f;
+  color: #b38b00;
+  background: white;
+  font-weight: 600;
+}
+
+.btn.home-btn-outline:hover {
+  background-color: #ffe58f;
+  border-color: #ffe58f;
+  color: #473700;
+}
+
+/* ===== CARRUSEL COMÚN (Home & About) ===== */
 .home-carousel {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Indicadores (puntos) */
+/* Imágenes del carrusel en Home */
+.home-hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: contain;
+}
+
+/* Indicadores (puntitos) */
 .home-carousel .carousel-indicators [data-bs-target] {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #5d3fd3;
+  background-color: #8fc5ff;
   opacity: 0.4;
   margin: 0 6px;
   transition: all 0.3s ease;
@@ -45,20 +92,20 @@
 
 .home-carousel .carousel-indicators .active {
   opacity: 1;
-  background-color: #5d3fd3;
+  background-color: #8fc5ff;
 }
 
-/* ===== FLECHAS CIRCULARES MORADAS CENTRADAS ===== */
+/* Flechas circulares azul pastel */
 .home-carousel .carousel-control-prev,
 .home-carousel .carousel-control-next {
   width: 50px;
   height: 50px;
-  background: #5d3fd3;
+  background: #8fc5ff;
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
   opacity: 1;
-  box-shadow: 0 5px 15px rgba(93, 63, 211, 0.3);
+  box-shadow: 0 5px 15px rgba(143, 197, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,10 +121,16 @@
   right: 15px;
 }
 
-/* Ícono chevron blanco */
+.home-carousel .carousel-control-prev:hover,
+.home-carousel .carousel-control-next:hover {
+  background: #7ab4f0;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Íconos de las flechas (chevron blanco) */
 .home-carousel .carousel-control-prev-icon,
 .home-carousel .carousel-control-next-icon {
-  background-image: none !important;
+  background-image: none;
   width: 20px;
   height: 20px;
   display: flex;
@@ -99,15 +152,7 @@
   font-size: 1.3rem;
 }
 
-/* Hover */
-.home-carousel .carousel-control-prev:hover,
-.home-carousel .carousel-control-next:hover {
-  background: #4c32b8;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 8px 25px rgba(93, 63, 211, 0.4);
-}
-
-/* Caption (texto en la imagen) */
+/* Caption (texto sobre la imagen) */
 .home-caption {
   position: absolute;
   bottom: 20px;
@@ -133,30 +178,6 @@
   opacity: 0.9;
 }
 
-/* Botones */
-.home-btn-primary {
-  background-color: #5d3fd3 !important;
-  border-color: #5d3fd3 !important;
-  font-weight: 600;
-}
-
-.home-btn-primary:hover {
-  background-color: #4c32b8 !important;
-  border-color: #4c32b8 !important;
-}
-
-.home-btn-outline {
-  border-color: #e0e0e0 !important;
-  color: #333 !important;
-  background: white !important;
-  font-weight: 600;
-}
-
-.home-btn-outline:hover {
-  background-color: #f8f9fa !important;
-  border-color: #ccc !important;
-}
-
 /* Responsive */
 @media (max-width: 992px) {
   .home-caption {
@@ -165,6 +186,51 @@
     padding: 0.75rem;
     font-size: 0.9rem;
   }
-  .home-carousel .carousel-control-prev { left: 10px; }
-  .home-carousel .carousel-control-next { right: 10px; }
+
+  .home-carousel .carousel-control-prev {
+    left: 10px;
+  }
+
+  .home-carousel .carousel-control-next {
+    right: 10px;
+  }
+
+  .home-hero-img {
+    max-height: 260px;
+  }
+}
+
+/* === ABOUT: mismas tarjetas que Home, mismo porte === */
+.about-row {
+  min-height: 360px;
+}
+
+/* Tarjeta genérica (la blanca y la amarilla) */
+.about-card {
+  border-radius: 1.5rem;
+  padding: 2.25rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tarjeta blanca (carrusel) */
+.about-carousel-card {
+  background: #ffffff;
+}
+
+/* Tarjeta amarilla (texto) */
+.about-text-card {
+  background: #ffe6a7;
+}
+
+/* Imágenes del carrusel del About */
+.about-carousel-img {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 1.25rem;
 }

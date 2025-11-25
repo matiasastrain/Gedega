@@ -1,0 +1,34 @@
+/* Mismo fondo pastel que el home */
+.contact-section {
+  background: linear-gradient(135deg, #fff9d9 0%, #e0f1ff 55%, #ffffff 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Tarjeta centrada y redondeada */
+.contact-card {
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+}
+
+.contact-title {
+  font-weight: 700;
+  color: #1f3b57;
+}
+
+/* Botón con el mismo azul pastel del home */
+.contact-btn-primary {
+  background-color: #8fc5ff;
+  border-color: #8fc5ff;
+  color: #073b6f;
+  font-weight: 600;
+}
+
+.contact-btn-primary:hover,
+.contact-btn-primary:focus {
+  background-color: #7ab4f0;
+  border-color: #7ab4f0;
+  color: #032743;
+}

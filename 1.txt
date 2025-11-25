@@ -1,0 +1,12 @@
+docker compose down -v
+docker compose up --build
+
+
+{ id: 1, username: 'admin', email: 'admin@landy.com', password: 'admin@landy.com', role: 'propietario' }
+Administrador
+
+{ id: 2, username: 'trabajador', email: 'trabajador@landy.com', password: 'trabajador@landy.com', role: 'trabajador' }
+registra pedido y una lista de pedido con un mapita (conexion con api de google)
+
+{ id: 4, username: 'cliente', email: 'cliente@landy.com', password: 'cliente@landy.com', role: 'beta' }
+depacho

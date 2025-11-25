@@ -30,8 +30,8 @@ body {
 }
 
 .auth-btn-primary {
-  background-color: #5d3fd3 !important;
-  border-color: #5d3fd3 !important;
+  background-color: #073b6f !important;
+  border-color: #073b6f !important;
   font-weight: 600;
 }
 
@@ -42,7 +42,7 @@ body {
 /* Navbar */
 .navbar-brand {
   font-weight: 700;
-  color: #5d3fd3 !important;
+  color: #073b6f !important;
 }
 
 /* Footer */

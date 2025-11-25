@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../services/api';
+import { useTranslation } from 'react-i18next';
 
 export default function Register() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -26,17 +29,17 @@ export default function Register() {
     const { username, email, password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
-      setError('Las contraseñas no coinciden');
+      setError(t('Passwords do not match'));
       return;
     }
     if (password.length < 8) {
-      setError('La contraseña debe tener al menos 8 caracteres');
+      setError(t('Password must be at least 8 characters'));
       return;
     }
 
     try {
       await API.post('/auth/register', { username, email, password });
-      setSuccess('¡Registro exitoso! Redirigiendo al login...');
+      setSuccess(t('Registration successful! Redirecting to login...'));
       setTimeout(() => {
         navigate('/login');
       }, 2000);
@@ -48,12 +51,14 @@ export default function Register() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2 className="text-center mb-4 text-primary">Crear Cuenta</h2>
+        <h2 className="text-center mb-4 text-primary">
+          {t('Create Account')}
+        </h2>
         {error && <Alert variant="danger">{error}</Alert>}
         {success && <Alert variant="success">{success}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Nombre de usuario</Form.Label>
+            <Form.Label>{t('Username')}</Form.Label>
             <Form.Control
               type="text"
               name="username"
@@ -63,7 +68,7 @@ export default function Register() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>{t('Email')}</Form.Label>
             <Form.Control
               type="email"
               name="email"
@@ -73,7 +78,7 @@ export default function Register() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Contraseña</Form.Label>
+            <Form.Label>{t('Password')}</Form.Label>
             <Form.Control
               type="password"
               name="password"
@@ -83,7 +88,7 @@ export default function Register() {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Confirmar contraseña</Form.Label>
+            <Form.Label>{t('Confirm Password')}</Form.Label>
             <Form.Control
               type="password"
               name="confirmPassword"
@@ -93,11 +98,11 @@ export default function Register() {
             />
           </Form.Group>
           <Button type="submit" className="w-100 auth-btn-primary">
-            Registrarse
+            {t('Register')}
           </Button>
         </Form>
         <p className="text-center mt-3">
-          ¿Ya tienes cuenta? <Link to="/login" className="text-primary">Inicia sesión</Link>
+          {t('Already have an account? Log in')}
         </p>
       </div>
     </div>

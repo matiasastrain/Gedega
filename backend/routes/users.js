@@ -28,7 +28,7 @@ router.post('/', authenticateToken, async (req, res) => {
   if (!password || password.length < 8) {
     return res.status(400).json({ error: 'Contraseña mínima 8 caracteres' });
   }
-  if (!['beta', 'trabajador', 'administrador', 'propietario'].includes(role)) {
+  if (!['beta', 'trabajador', 'propietario'].includes(role)) {
     return res.status(400).json({ error: 'Rol inválido' });
   }
 
